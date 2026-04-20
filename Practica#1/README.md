@@ -1,0 +1,1 @@
+"Se desarrolló un programa que realiza las tres operaciones básicas: suma, resta y multiplicación, mostrando los resultados en una sola ejecución."

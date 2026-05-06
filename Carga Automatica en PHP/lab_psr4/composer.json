@@ -1,0 +1,15 @@
+{
+    "name": "k_lid/lab_psr4",
+    "autoload": {
+        "psr-4": {
+            "KLid\\LabPsr4\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yanvonchong",
+            "email": "vchandres@gmail.com"
+        }
+    ],
+    "require": {}
+}

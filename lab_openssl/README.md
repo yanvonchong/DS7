@@ -2,36 +2,13 @@
 
 
 
-<div align="center">
-
-
-
-!\[PHP](https://img.shields.io/badge/PHP-8.x-blue?style=for-the-badge\&logo=php)
-
-
-
-!\[OpenSSL](https://img.shields.io/badge/OpenSSL-Seguridad-green?style=for-the-badge)
-
-
-
-!\[Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?style=for-the-badge\&logo=bootstrap)
-
-
-
-!\[Estado](https://img.shields.io/badge/Estado-Completado-success?style=for-the-badge)
-
-
-
-</div>
-
-
-
 \---
 
 
 
 \# 👨‍🎓 Información del Estudiante
 
+Yan Von Chong    8-942-306
 
 
 | Dato | Información |

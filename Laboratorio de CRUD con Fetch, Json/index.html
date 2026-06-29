@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD - Gestión de Productos</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        body { background-color: #f0f2f5; }
+        .card-header { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+        .table thead { background-color: #4f46e5; color: #fff; }
+        .btn-edit   { background-color: #f59e0b; border: none; color: #fff; }
+        .btn-edit:hover { background-color: #d97706; color: #fff; }
+        #badge-modo { font-size: .85rem; }
+    </style>
+</head>
+<body>
+
+<div class="container py-4">
+
+    <!-- ── Título ───────────────────────────────────────────────── -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">
+            <i class="bi bi-box-seam-fill"></i> Gestión de Productos
+        </h2>
+        <p class="text-muted">CRUD con Fetch API · PHP OOP · MySQL · Bootstrap 5</p>
+    </div>
+
+    <!-- ── Formulario ───────────────────────────────────────────── -->
+    <div class="card shadow mb-4">
+        <div class="card-header text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><i class="bi bi-pencil-square"></i> Formulario de Producto</h5>
+            <span id="badge-modo" class="badge bg-success">Modo: Registrar</span>
+        </div>
+        <div class="card-body">
+            <form id="formProducto" novalidate>
+                <!-- Campo oculto para el ID (modo edición) -->
+                <input type="hidden" id="idProducto" name="id" value="">
+
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="Codigo" class="form-label fw-semibold">Código</label>
+                        <input type="text" class="form-control" id="Codigo" name="codigo"
+                               placeholder="Ej: A001" maxlength="20" required>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="Producto" class="form-label fw-semibold">Producto</label>
+                        <input type="text" class="form-control" id="Producto" name="producto"
+                               placeholder="Nombre del producto" maxlength="100" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Precio" class="form-label fw-semibold">Precio ($)</label>
+                        <input type="number" class="form-control" id="Precio" name="precio"
+                               placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Cantidad" class="form-label fw-semibold">Cantidad</label>
+                        <input type="number" class="form-control" id="Cantidad" name="cantidad"
+                               placeholder="1" step="1" min="1" required>
+                    </div>
+                </div>
+
+                <div class="mt-3 d-flex gap-2">
+                    <button type="submit" id="btnRegistrar" class="btn btn-primary">
+                        <i class="bi bi-floppy-fill"></i> Registrar
+                    </button>
+                    <button type="button" id="btnCancelar" class="btn btn-secondary d-none">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ── Buscador ─────────────────────────────────────────────── -->
+    <div class="input-group mb-3">
+        <input type="text" id="campoBusqueda" class="form-control"
+               placeholder="Buscar por código o nombre de producto...">
+        <button class="btn btn-outline-primary" id="btnBuscar">
+            <i class="bi bi-search"></i> Buscar
+        </button>
+        <button class="btn btn-outline-secondary" id="btnVerTodos">
+            <i class="bi bi-arrow-clockwise"></i> Ver todos
+        </button>
+    </div>
+
+    <!-- ── Tabla de resultados ──────────────────────────────────── -->
+    <div class="card shadow">
+        <div class="card-header text-white">
+            <h5 class="mb-0"><i class="bi bi-table"></i> Lista de Productos
+                <span id="contadorProductos" class="badge bg-light text-dark ms-2">0</span>
+            </h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered mb-0" id="tablaProductos">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Código</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                        <tr>
+                            <td colspan="6" class="text-center text-muted py-3">
+                                <i class="bi bi-hourglass-split"></i> Cargando productos...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /container -->
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Lógica de la aplicación -->
+<script src="script.js"></script>
+
+</body>
+</html>
